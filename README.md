@@ -128,11 +128,25 @@ echte foto's (bij voorkeur `.webp` of `.jpg`):
 
 De afmetingen in `data.ts` bepalen de plek in de masonry-grid — houd de verhoudingen aan.
 
-### Logo vervangen
+### Je eigen logo toevoegen
 
-Het woordmerk wordt getypografeerd met Archivo (matcht je logo). Het monogram staat in
-`public/logo/`. Wil je je exacte export gebruiken, vervang dan die bestanden en/of pas
-`components/ui/logo.tsx` en `components/ui/monogram.tsx` aan.
+Het logo is **bestand-gestuurd** — je hoeft geen code te schrijven:
+
+1. Zet je logobestanden in `public/logo/` (zelfde bestandsnamen):
+   - `logo.svg` — donkere versie (voor lichte achtergrond, gebruikt in de header)
+   - `logo-white.svg` — lichte versie (voor donkere achtergrond, footer & mobiel menu)
+
+   SVG heeft de voorkeur; PNG met transparante achtergrond kan ook (pas dan de bestandsnamen aan in
+   `lib/data.ts`).
+2. Zet in **`lib/data.ts`** de instelling `logo.useImageFiles` op `true`.
+3. Klaar — je logo verschijnt overal. De hoogte schaalt automatisch; de breedte volgt de verhouding
+   van jouw bestand.
+
+Staat `useImageFiles` op `false` (standaard), dan wordt het woordmerk getypografeerd met Archivo +
+een nagetekend monogram. De bestanden in `public/logo/` zijn tot die tijd plaatshouders.
+
+> Het favicon staat los in `app/icon.svg` — vervang dat door je monogram voor een merkvast
+> tabblad-icoon.
 
 ---
 

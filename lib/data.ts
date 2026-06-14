@@ -25,6 +25,30 @@ export const site = {
   ],
 } as const;
 
+/**
+ * Logo-instelling.
+ * ─────────────────────────────────────────────────────────────────────
+ * JE EIGEN LOGO TOEVOEGEN (geen code-kennis nodig):
+ *   1. Zet je logobestanden in /public/logo/ :
+ *        - logo.svg        → donkere versie (voor lichte achtergrond)
+ *        - logo-white.svg  → lichte versie  (voor donkere achtergrond)
+ *      SVG heeft de voorkeur; PNG met transparante achtergrond kan ook
+ *      (pas dan de bestandsnamen hieronder aan, bijv. /logo/logo.png).
+ *   2. Zet `useImageFiles` hieronder op `true`.
+ *   3. Klaar — je logo verschijnt in de header, footer en het mobiele menu.
+ *
+ * Staat `useImageFiles` op `false`, dan wordt het woordmerk getypografeerd
+ * met Archivo (komt overeen met je logo) + een nagetekend monogram.
+ */
+export const logo = {
+  useImageFiles: false,
+  files: {
+    dark: '/logo/logo.svg',
+    light: '/logo/logo-white.svg',
+  },
+  alt: 'Rinse Bommerson Photography',
+} as const;
+
 export const nav = [
   { label: 'Werk', href: '/portfolio' },
   { label: 'Aanpak', href: '/#aanpak' },
