@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { verifyChallenge } from '@/lib/captcha';
 
 /**
  * Ontvangt het contactformulier.
@@ -7,11 +8,13 @@ import { NextResponse } from 'next/server';
  * serverlogs). Koppel je eigen e-maildienst om aanvragen echt te ontvangen —
  * bijvoorbeeld Resend, Postmark of Nodemailer. Zie de README ("Contactformulier
  * koppelen") voor een voorbeeld.
+ *
+ * Spambescherming: honeypot-veld + ingebouwde captcha (zie lib/captcha.ts).
  */
 export async function POST(request: Request) {
   try {
     const data = await request.json();
-    const { naam, email, bericht, website } = data ?? {};
+    const { naam, email, bericht, website, captchaToken, captchaAnswer } = data ?? {};
 
     // Honeypot: bots vullen dit verborgen veld in.
     if (website) {
@@ -29,6 +32,18 @@ export async function POST(request: Request) {
     if (!emailOk) {
       return NextResponse.json(
         { ok: false, error: 'Vul een geldig e-mailadres in.' },
+        { status: 400 },
+      );
+    }
+
+    // Captcha: ingebouwde, ondertekende rekensom.
+    if (!verifyChallenge(captchaToken, captchaAnswer)) {
+      return NextResponse.json(
+        {
+          ok: false,
+          code: 'captcha',
+          error: 'De beveiligingsvraag klopt niet of is verlopen. Probeer het opnieuw.',
+        },
         { status: 400 },
       );
     }

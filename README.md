@@ -166,7 +166,29 @@ Zet je sleutel in `.env.local`:
 RESEND_API_KEY=...
 ```
 
-Het formulier bevat al een honeypot-veld tegen spam.
+### Spambescherming (ingebouwde captcha)
+
+Het formulier is op twee manieren beschermd, **zonder externe dienst of account**:
+
+1. **Honeypot** — een verborgen veld dat alleen bots invullen.
+2. **Ingebouwde captcha** — een ondertekende rekensom (`lib/captcha.ts`). De server
+   (`/api/captcha`) genereert een vraag met vervaltijd en een HMAC-handtekening; bij verzenden
+   controleert `/api/contact` de handtekening, de vervaltijd én het antwoord. Er wordt niets
+   opgeslagen (stateless), de vraag verloopt na 5 minuten en kan niet worden vervalst of hergebruikt.
+   De captcha is volledig toegankelijk (gewone tekstvraag, geen plaatjes).
+
+Zet in productie een eigen, geheime sleutel als environment-variabele — dit is belangrijk: zonder
+deze sleutel gebruikt de server per start een willekeurige sleutel (prima voor lokaal, maar op een
+serverless host met meerdere instances moet de sleutel vast staan):
+
+```
+CAPTCHA_SECRET=een-lange-willekeurige-waarde
+```
+
+> Wil je in plaats hiervan een externe oplossing? Dan is **Cloudflare Turnstile** (gratis,
+> privacyvriendelijk, sterker tegen geavanceerde bots) een goede keuze. Vervang dan het captcha-veld
+> in `components/sections/contact-form.tsx` door de Turnstile-widget en verifieer het token in
+> `app/api/contact/route.ts`.
 
 ---
 
