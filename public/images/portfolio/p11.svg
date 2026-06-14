@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1500" viewBox="0 0 1200 1500" role="img" aria-label="BRANDING">
+  <rect width="1200" height="1500" fill="#16181C"/>
+  <g transform="translate(360 510) scale(4.8)" fill="none" stroke="#F4F1EA" stroke-opacity="0.1" stroke-width="11" stroke-linecap="square">
+    <path d="M25 15 V85"/>
+    <path d="M25 15 H53 A19 19 0 0 1 53 53 H25"/>
+    <path d="M44 53 L75 85"/>
+    <path d="M25 85 H82"/>
+  </g>
+  <path d="M60 132 V60 H132" fill="none" stroke="#D6321F" stroke-width="5" /><path d="M1068 60 H1140 V132" fill="none" stroke="#D6321F" stroke-width="5" /><path d="M60 1368 V1440 H132" fill="none" stroke="#D6321F" stroke-width="5" /><path d="M1068 1440 H1140 V1368" fill="none" stroke="#D6321F" stroke-width="5" />
+  <text x="600" y="1410" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" letter-spacing="4" fill="#F4F1EA" fill-opacity="0.75">BRANDING</text>
+</svg>

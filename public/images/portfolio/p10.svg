@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1067" viewBox="0 0 1600 1067" role="img" aria-label="ZAKELIJK">
+  <rect width="1600" height="1067" fill="#EAE6DC"/>
+  <g transform="translate(586.6 320.1) scale(4.268)" fill="none" stroke="#16181C" stroke-opacity="0.1" stroke-width="11" stroke-linecap="square">
+    <path d="M25 15 V85"/>
+    <path d="M25 15 H53 A19 19 0 0 1 53 53 H25"/>
+    <path d="M44 53 L75 85"/>
+    <path d="M25 85 H82"/>
+  </g>
+  <path d="M53 117 V53 H117" fill="none" stroke="#D6321F" stroke-width="4" /><path d="M1483 53 H1547 V117" fill="none" stroke="#D6321F" stroke-width="4" /><path d="M53 950 V1014 H117" fill="none" stroke="#D6321F" stroke-width="4" /><path d="M1483 1014 H1547 V950" fill="none" stroke="#D6321F" stroke-width="4" />
+  <text x="800" y="1003" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" letter-spacing="4" fill="#16181C" fill-opacity="0.75">ZAKELIJK</text>
+</svg>
